@@ -8,6 +8,8 @@ import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import { setGlobalLoadingStatusAC } from "../../redux/loading/loadingReducer";
 import { styled } from '@mui/material/styles';
 import CircularProgress from '@mui/material/CircularProgress';
+import { motion } from "framer-motion"
+
 const Fields = styled(Field)({
   '& label.Mui-focused': {
     color: 'green',
@@ -84,6 +86,7 @@ const Login = () => {
             values,
           }) => (
             <Form>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 1 }} >
               <Fields
                 sx={{ mt: 1 }}
                 as={TextField}
@@ -98,6 +101,8 @@ const Login = () => {
                 required
                 helperText={<ErrorMessage name="email" >{(msg) => <div style={{ color: "red", textAlign: "left" }}>{msg}</div>}</ErrorMessage>}
               />
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 1 }} >
               <Fields
                 sx={{ mt: 1 }}
                 as={TextField}
@@ -112,6 +117,8 @@ const Login = () => {
                 required
                 helperText={<ErrorMessage name="password" />}
               />
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 1 }} >
               <Button
                 type="submit"
                 color="success"
@@ -123,6 +130,7 @@ const Login = () => {
               >
                 {isLoading ? <CircularProgress/> : "შესვლა"}
               </Button>
+              </motion.div>
             </Form>
           )}
         </Formik>
